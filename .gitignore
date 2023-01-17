@@ -1,0 +1,6 @@
+node_modules
+.env
+.idea
+bin/v1
+dist
+dist/test.txt
