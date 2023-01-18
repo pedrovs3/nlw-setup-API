@@ -3,11 +3,11 @@ import cors from '@fastify/cors';
 import { habitsRoutes } from './routes/routes';
 
 class App {
-  declare fastify: FastifyInstance;
+  declare app: FastifyInstance;
 
   constructor() {
     // Creating the Fastify Instance
-    this.fastify = Fastify({
+    this.app = Fastify({
       logger: true,
     });
     // Setting global middlewares in this method.
@@ -18,15 +18,15 @@ class App {
 
   private async middlewares() {
     // Middleware of CORS
-    await this.fastify.register(cors, {
+    await this.app.register(cors, {
       origin: true,
     });
   }
 
   private routes() {
     // Register routes of API
-    this.fastify.register(habitsRoutes); // { prefix: '/.netlify/functions/server' }
+    this.app.register(habitsRoutes, { prefix: '/.netlify/functions/server' });
   }
 }
 
-export default new App().fastify;
+export default new App().app;

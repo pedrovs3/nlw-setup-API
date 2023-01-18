@@ -12,10 +12,14 @@
   "keywords": [],
   "author": "Pedro Vieira",
   "license": "ISC",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
     "@fastify/aws-lambda": "^3.1.3",
     "@fastify/cors": "^8.2.0",
     "@prisma/client": "^4.8.1",
+    "dayjs": "^1.11.7",
     "dotenv-safe": "^8.2.0",
     "fastify": "^4.11.0",
     "netlify-lambda": "^2.0.15",
@@ -23,6 +27,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^9.3.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
@@ -31,6 +36,7 @@
     "eslint-plugin-import": "^2.26.0",
     "prettier": "^2.8.2",
     "prisma": "^4.8.1",
+    "prisma-erd-generator": "^1.2.5",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4"
   }
