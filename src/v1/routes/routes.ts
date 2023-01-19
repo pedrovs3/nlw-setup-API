@@ -1,6 +1,6 @@
-import habitsRoutes from './habits/habitsRoutes';
+import appRoutes from './habits/appRoutes';
 
-export { habitsRoutes };
+export {appRoutes};
 
 /*
 Responses:
