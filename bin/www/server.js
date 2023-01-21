@@ -2,7 +2,10 @@ import fastify from '../v1/Fastify';
 
 const run = async () => {
   try {
-    await fastify.listen({ port: 3333 }).then('http://127.0.0.1:3333/.netlify/functions/server');
+    await fastify.listen({
+      port: 3333,
+      host: '0.0.0.0',
+    }).then(() => console.log('Running'));
   } catch (e) {
     process.exit(1);
   }

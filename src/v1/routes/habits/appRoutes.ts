@@ -73,7 +73,7 @@ export default async function appRoutes(app: FastifyInstance) {
         },
       });
 
-      const completedHabits = day?.dayHabits.map((dayHabit) => dayHabit.habit_id);
+      const completedHabits = day?.dayHabits.map((dayHabit) => dayHabit.habit_id) ?? [];
 
       reply.status(200).send({ data: { possibleHabits, completedHabits } });
     } catch (e) {
@@ -159,23 +159,6 @@ export default async function appRoutes(app: FastifyInstance) {
         INNER JOIN tbl_days_habits ON tbl_days_habits.day_id = Days.id
         GROUP BY Days.id, Days.date;
       `;
-
-      // Tentar corrigir a querie depois !!!
-
-      /*
-				const summary = await prisma.$queryRaw`
-					SELECT
-							Days.id,
-							Days.date,
-							CAST(COUNT(tbl_days_habits.id) AS float) AS completed,
-							CAST(COUNT(tbl_habit_week_days.id) as float) as amount
-					FROM tbl_days Days
-					INNER JOIN tbl_days_habits ON tbl_days_habits.day_id = Days.id
-					INNER JOIN tbl_habit_week_days ON tbl_habit_week_days.week_day = date_format(Days.date, '%w')
-					GROUP BY Days.id, Days.date;
-				`;
-			*/
-
       reply.send({ data: summary });
     } catch (e) {
       reply.status(400).send({ error: e });
