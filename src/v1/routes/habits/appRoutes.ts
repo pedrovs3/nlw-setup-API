@@ -148,9 +148,9 @@ export default async function appRoutes(app: FastifyInstance) {
         SELECT 
             Days.id, 
             Days.date,
-            CAST(COUNT(tbl_days_habits.id) AS float) AS completed,
+            CAST(COUNT(tbl_days_habits.id) as decimal) AS completed,
             (
-            SELECT cast(count(tbl_habit_week_days.id) as float)
+            SELECT cast(count(tbl_habit_week_days.id) as decimal)
             FROM tbl_habit_week_days
             JOIN tbl_habits ON tbl_habits.id = tbl_habit_week_days.habit_id
             WHERE tbl_habit_week_days.week_day = date_format(Days.date, '%w') AND tbl_habits.created_at <= Days.date
