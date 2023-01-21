@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run build && tsx watch bin/www/server.js",
     "build": "tsc",
-    "build:functions": "netlify-lambda build functions --config ./webpack.config.netlify.js"
+    "build:functions": "npx netlify-lambda build functions --config ./webpack.config.netlify.js"
   },
   "keywords": [],
   "author": "Pedro Vieira",
