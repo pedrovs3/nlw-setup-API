@@ -25,7 +25,7 @@ class App {
 
   private routes() {
     // Register routes of API
-    this.app.register(appRoutes, { prefix: '/.netlify/functions/server' });
+    this.app.register(appRoutes);
   }
 }
 
